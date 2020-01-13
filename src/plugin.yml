@@ -1,0 +1,9 @@
+name: EasyEnch
+version: 1.2
+api-version: 1.13
+main: com.luucx7.easyench.Main
+author: Luucx7
+commands:
+    easyench:
+        aliases: [ee, ench]
+        permission: easyench.use
