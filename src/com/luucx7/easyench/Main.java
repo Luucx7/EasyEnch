@@ -33,7 +33,7 @@ public class Main extends JavaPlugin implements Listener {
 		this.saveDefaultConfig();
 		version=Bukkit.getServer().getVersion();
 		
-		Bukkit.getConsoleSender().sendMessage(version);
+		Bukkit.getConsoleSender().sendMessage("[EasyEnch] Loading minecraft server version: "+version);
 		// Version-specific loaders
 		if (version.contains("1.8")) {
 			this.getCommand("easyench").setExecutor(new EasyEnch_1_8());
@@ -75,10 +75,12 @@ public class Main extends JavaPlugin implements Listener {
 		else {
 			this.getCommand("easyench").setExecutor(new EasyEnch_1_8());
 			this.getServer().getPluginManager().registerEvents(new EasyEnch_1_8(), this);
-			Bukkit.getConsoleSender().sendMessage(ChatColor.DARK_RED+"FATAL ERROR WHILE LOADING EASYENCH: UNKNOWN VERSION");
-			Bukkit.getConsoleSender().sendMessage("This error occurred because the plugin didn't loaded any version from 1.8 to 1.15");
+			Bukkit.getConsoleSender().sendMessage(ChatColor.DARK_RED+"ERROR WHILE LOADING EASYENCH: UNKNOWN VERSION");
+			Bukkit.getConsoleSender().sendMessage("This error occurred because the plugin didn't loaded any version from 1.8 up to 1.15");
 			Bukkit.getConsoleSender().sendMessage("Look for newer versions, check your server or contact the developer.");
+			Bukkit.getConsoleSender().sendMessage(ChatColor.DARK_GRAY+"By default, the 1.8 version was loaded.");
 		}
+		Bukkit.getConsoleSender().sendMessage("[EasyEnch] Plugin loaded.");
 	}
 	public static Main getMain() {
 		return (Main) Bukkit.getPluginManager().getPlugin("EasyEnch");

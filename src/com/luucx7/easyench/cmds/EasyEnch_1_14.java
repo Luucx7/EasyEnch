@@ -25,8 +25,8 @@ public class EasyEnch_1_14 implements Listener, CommandExecutor {
 			if (sender.hasPermission("easyench.use")) {
 				if (p.getInventory().getItemInMainHand().getType()==Material.AIR) {
 					Title title = new Title();
-					title.sendTitle(p, config.getString("no_item"), 1, 10000, 3, org.bukkit.ChatColor.RED);
-					p.sendMessage("teste");
+					title.sendTitle(p, config.getString("no_item"), 10, 10000, 30, org.bukkit.ChatColor.RED);
+					p.sendMessage(config.getString("no_item"));
 				} else {
 					MainGUI.v1_14(p);
 				}
