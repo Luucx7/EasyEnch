@@ -10,7 +10,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
 
 import com.luucx7.easyench.Main;
-import com.luucx7.easyench.api.Title;
+import com.luucx7.easyench.title.Title;
 import com.luucx7.easyench.visual.versions_builders.MainGUI;
 
 import net.md_5.bungee.api.ChatColor;
@@ -25,8 +25,7 @@ public class EasyEnch_1_14 implements Listener, CommandExecutor {
 			if (sender.hasPermission("easyench.use")) {
 				if (p.getInventory().getItemInMainHand().getType()==Material.AIR) {
 					Title title = new Title();
-					title.sendTitle(p, config.getString("no_item"), 10, 10000, 30, org.bukkit.ChatColor.RED);
-					p.sendMessage(config.getString("no_item"));
+					title.send(p, 100, 30, 100, ChatColor.translateAlternateColorCodes('&', config.getString("no_item")), "");
 				} else {
 					MainGUI.v1_14(p);
 				}

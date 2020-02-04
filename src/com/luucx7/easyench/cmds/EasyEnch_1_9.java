@@ -10,10 +10,10 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
 
 import com.luucx7.easyench.Main;
+import com.luucx7.easyench.title.Title;
 import com.luucx7.easyench.visual.versions_builders.MainGUI;
 
 import net.md_5.bungee.api.ChatColor;
-import net.md_5.bungee.api.chat.ComponentBuilder;
 
 public class EasyEnch_1_9 implements Listener, CommandExecutor {
 	
@@ -24,7 +24,8 @@ public class EasyEnch_1_9 implements Listener, CommandExecutor {
 			Player p = (Player) sender;
 			if (sender.hasPermission("easyench.use")) {
 				if (p.getInventory().getItemInMainHand().getType()==Material.AIR) {
-					p.spigot().sendMessage(new ComponentBuilder("Tenha um item em mãos!").color(ChatColor.RED).create());
+					Title title = new Title();
+					title.send(p, 100, 30, 100, ChatColor.translateAlternateColorCodes('&', config.getString("no_item")), "");
 				} else {
 					MainGUI.v1_8(p);
 				}
